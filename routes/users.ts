@@ -12,5 +12,6 @@ const usersController = require('../controllers/usersController')
 
 // routes
 nestedRouter.get('/', usersController.getData)
+nestedRouter.post('/login', usersController.login)
 
 module.exports = nestedRouter;

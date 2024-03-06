@@ -2,8 +2,10 @@ require('dotenv').config()
 
 const https = require('https')
 const restana = require('restana')
+
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const helmet = require('helmet');
 
 const usersRouter = require('./routes/users')
 
@@ -22,6 +24,7 @@ const service = restana({
 service.use(cors({
   origin: isProduction ? '*' : '*'
 }))
+service.use(helmet());
 
 service.use(bodyParser.json({limit: '50mb'}));
 service.use(bodyParser.urlencoded({limit: '50mb', extended: true}));

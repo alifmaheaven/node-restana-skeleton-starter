@@ -33,6 +33,17 @@ exports.bad = function(message:string = 'Success', values: object = {}, res: any
   )
 };
 
+exports.validation = function(message:string = 'Success', values: object = {}, res: any) {
+  res.send(
+    {
+      status: 422,
+      message: message,
+      data: values,
+    }, 
+    422, 
+  )
+}
+
 exports.notfound = function(message:string = 'Success', values: object = {}, res: any) {
   res.send(
     {
